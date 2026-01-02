@@ -24,7 +24,11 @@ export class Launcher {
     }
 
     async loadGreeting() {
-        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+            const result = await chrome.storage.sync.get(this.greetingKey);
+            this.customGreeting = (result[this.greetingKey] as string) || null;
+        } else if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+            // Fallback/Check local if sync is empty (Migration handled in shortcuts for simplicity, or here too)
             const result = await chrome.storage.local.get(this.greetingKey);
             this.customGreeting = (result[this.greetingKey] as string) || null;
         } else {
@@ -36,7 +40,9 @@ export class Launcher {
 
     async saveGreeting(text: string | null) {
         this.customGreeting = text;
-        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+            await chrome.storage.sync.set({ [this.greetingKey]: this.customGreeting });
+        } else if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
             await chrome.storage.local.set({ [this.greetingKey]: this.customGreeting });
         } else {
             if (text) localStorage.setItem(this.greetingKey, text);
@@ -49,8 +55,28 @@ export class Launcher {
     }
 
     async loadShortcuts() {
-        // Check if running as extension
-        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+        // Check if running as extension with sync support
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+            const result = await chrome.storage.sync.get(this.storageKey);
+            let syncedShortcuts = (result[this.storageKey] as Shortcut[]);
+
+            // MIGRATION LOGIC: If sync is empty, check local storage (from v1.0/v1.1)
+            if (!syncedShortcuts || syncedShortcuts.length === 0) {
+                const localResult = await chrome.storage.local.get(this.storageKey);
+                const localShortcuts = (localResult[this.storageKey] as Shortcut[]);
+
+                if (localShortcuts && localShortcuts.length > 0) {
+                    console.log('Migrating shortcuts from Local to Sync storage...');
+                    syncedShortcuts = localShortcuts;
+                    // Save to sync immediately
+                    await chrome.storage.sync.set({ [this.storageKey]: syncedShortcuts });
+                    // Optional: Clear local to avoid confusion, or keep as backup. Let's keep for safety.
+                }
+            }
+
+            this.shortcuts = syncedShortcuts || DEFAULT_SHORTCUTS;
+        } else if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+            // Fallback for browsers without sync or restricted contexts
             const result = await chrome.storage.local.get(this.storageKey);
             this.shortcuts = (result[this.storageKey] as Shortcut[]) || DEFAULT_SHORTCUTS;
         } else {
@@ -62,7 +88,9 @@ export class Launcher {
     }
 
     async saveShortcuts() {
-        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+            await chrome.storage.sync.set({ [this.storageKey]: this.shortcuts });
+        } else if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
             await chrome.storage.local.set({ [this.storageKey]: this.shortcuts });
         } else {
             localStorage.setItem(this.storageKey, JSON.stringify(this.shortcuts));

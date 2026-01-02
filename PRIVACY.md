@@ -10,8 +10,8 @@ All data created by the user (custom shortcuts, titles, icons, preferences) is s
 The Extension uses the following permissions for functional purposes only:
 
 1.  **Storage (`storage`)**:
-    *   **Purpose**: To save your dashboard layout, custom shortcuts, and preferences (e.g., greeting text).
-    *   **Data Handling**: Data is stored strictly on your local device. One-way synchronization (if enabled by browser settings) is handled entirely by the browser vendor (Google/Microsoft/Firefox), not by us.
+    *   **Purpose**: To save your dashboard layout, custom shortcuts, and preferences.
+    *   **Data Handling**: Data is stored locally and, if you are signed into your browser, synced across your devices using Chrome/Edge Sync (`chrome.storage.sync`). This synchronization is handled securely by your browser provider (Google/Microsoft) and is subject to their respective privacy policies. We do not have access to this data.
 
 2.  **Favicon**:
     *   **Purpose**: To display icons for your shortcuts.
