@@ -1,60 +1,57 @@
 # HomeTab Launcher 📺
 
-A modern, TV-style New Tab page designed for HTPCs, big screens, and keyboard warriors. Built with **TypeScript**, **Vite**, and **Glassmorphism** aesthetics.
+![HomeTab Pro Banner](public/promo_marquee.jpg)
 
-![HomeTab Preview](public/store_screenshot_1_main.png) 
+A modern, TV-style New Tab page designed for HTPCs, big screens, and keyboard warriors. Built with **TypeScript**, **Vite**, and **Glassmorphism** aesthetics.
 
 ## ✨ Features
 
 - **🎮 TV-Optimized Navigation**: Full D-Pad (Arrow Keys) support. Navigate your grid without a mouse.
 - **🎨 Modern Design**: Hybrid "Neon Cyberpunk" glow effects with clean Glassmorphism tiles.
-- **✏️ Edit Mode**: 
-  - Add, Edit, and Remove shortcuts easily.
+- **✏️ Edit Mode & Customization**: 
+  - **Full Control**: Add, Edit, and Remove shortcuts.
   - **Auto-Fetch**: Automatically grabs website titles and icons.
-  - **Customization**: Manually set custom Logo URLs and rename shortcuts.
-- **👋 Custom Greetings**: Click the greeting text to personalize your welcome message.
-- **📱 PWA Support**: Installable as a standalone app on any device (Chrome/Edge/Safari).
-- **🦊 Cross-Browser**: Works on Chrome, Edge, Brave, and Firefox.
+  - **Custom Logos**: Support for manual image URLs.
+  - **Personal Greeting**: Click the "Good Evening" text to type your own welcome message.
+- **📱 PWA Support**: Installable as a standalone app.
+- **🔒 Privacy Focused**: No tracking. All data is stored locally.
+
+## 📥 Download
+
+[**Download Latest Release (v1.2)**](https://github.com/alidkhaida/hometab/releases)
+
+## 📸 Gallery
+
+| Main Grid | Edit Mode |
+|-----------|-----------|
+| ![Main](public/store_screenshot_1_main.png) | ![Edit](public/store_screenshot_2_edit.png) |
+
+| Add Shortcut | Custom Greeting |
+|--------------|-----------------|
+| ![Add](public/store_screenshot_3_modal.png) | ![Greeting](public/store_screenshot_4_custom_greeting.png) |
 
 ## 🚀 Installation
 
 ### 1. As a Chrome/Edge Extension (Developer Mode)
-1. Clone this repo: `git clone https://github.com/alidkhaida/hometab.git`
-2. Install dependencies & build:
-   ```bash
-   npm install
-   npm run build
-   ```
+1. Download the `hometab-extension.zip` from Releases (or clone this repo).
+2. Unzip it (if downloaded).
 3. Open your browser's Extensions page:
    - Chrome: `chrome://extensions`
    - Edge: `edge://extensions`
-4. Enable **Developer Mode** (top right toggle).
-5. Click **Load unpacked** and select the `dist` folder from this project.
+4. Enable **Developer Mode**.
+5. Click **Load unpacked** and select the folder (or `dist` if building from source).
 
 ### 2. As a Firefox Extension
-1. Build the project as shown above.
-2. Go to `about:debugging#/runtime/this-firefox`.
-3. Click **Load Temporary Add-on...**.
-4. Navigate to the `dist` folder and select `manifest.firefox.json` (or rename it to `manifest.json` first if needed).
+1. Load `manifest.firefox.json` via `about:debugging`.
 
-### 3. As a PWA (Standalone App)
-1. Run the dev server: `npm run dev`
-2. Open `http://localhost:5173` in your browser.
-3. Click the "Install App" icon in your address bar.
+### 3. As a PWA
+1. Open the hosted page (or localhost).
+2. Click the "Install App" icon in the address bar.
 
-## 🛠️ Usage
+## �️ Privacy Policy
 
-### Edit Mode
-Click the **Settings Icon ⚙️** in the top right corner to enter Edit Mode.
-- **Add**: Click the large `+` card.
-- **Edit**: Click the **Pencil ✎** on any card to change its URL, Title, or Icon.
-- **Delete**: Click the **X** badge to remove a shortcut.
-- **Greeting**: Click the "Good Evening" text to type a custom message.
-
-### Keyboard Controls
-- **Arrow Keys**: Navigate the grid.
-- **Enter**: Launch the selected app (or save changes in modal).
-- **Esc**: Close modals.
+This extension does not collect any user data. All shortcuts and preferences are stored locally on your device.
+[View Full Privacy Policy](https://alidkhaida.github.io/hometab/PRIVACY.md)
 
 ## 💻 Development
 
