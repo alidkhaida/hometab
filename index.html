@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeTab</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <div class="greeting-container">
+        <h1 id="greeting">Good Evening</h1>
+      </div>
+    </div>
+    <div class="time-container">
+      <div id="clock">12:00</div>
+      <!-- <div id="date">JAN 01</div> moved inside or removed? keeping layout simple -->
+      <button id="settings-btn" class="settings-btn" title="Edit Shortcuts">⚙️</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="app-grid">
+      <!-- App cards will be injected here -->
+    </div>
+  </main>
+
+  <!-- Add/Edit Modal -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal">
+      <h2 id="modal-title">Add Shortcut</h2>
+      <div class="form-group">
+        <label for="url-input">URL (e.g. youtube.com)</label>
+        <input type="text" id="url-input" placeholder="https://..." autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="title-input">Title (Optional)</label>
+        <input type="text" id="title-input" placeholder="Auto-fetch if empty" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="logo-input">Logo URL (Optional)</label>
+        <input type="text" id="logo-input" placeholder="Link to image/icon" autocomplete="off">
+      </div>
+      <div class="modal-actions">
+        <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+        <button id="save-btn" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
