@@ -1,13 +1,15 @@
 :root {
   /* Colors */
-  --bg-color: #050505;
-  --card-bg: rgba(255, 255, 255, 0.08);
-  /* Glass effect */
-  --card-border: rgba(255, 255, 255, 0.1);
-  --neon-blue: #00f3ff;
-  --neon-glow: 0 0 15px rgba(0, 243, 255, 0.6), 0 0 30px rgba(0, 243, 255, 0.4);
-  --text-primary: #00f3ff;
-  --text-secondary: rgba(0, 243, 255, 0.7);
+  --bg-color: #f0f2f5;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  /* Milky Glass */
+  --card-border: rgba(255, 255, 255, 0.4);
+  --neon-blue: #0088ff;
+  /* Deep Sky Blue matches icon */
+  --neon-glow: 0 0 15px rgba(0, 136, 255, 0.3),
+    0 0 30px rgba(0, 136, 255, 0.1);
+  --text-primary: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
 
   /* Dimensions */
   --card-size: 160px;
@@ -122,7 +124,7 @@ main {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
 }
 
 .app-card img {
@@ -283,7 +285,7 @@ body.edit-mode .app-card .badge-container {
 }
 
 .modal {
-  background: #1a1a20;
+  background: #ffffff;
   padding: 30px;
   border-radius: 20px;
   width: 400px;
@@ -310,10 +312,10 @@ body.edit-mode .app-card .badge-container {
 .form-group input {
   width: 100%;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--card-border);
+  background: #f5f7fa;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  color: white;
+  color: #000;
   font-family: inherit;
 }
 
