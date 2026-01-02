@@ -1,0 +1,20 @@
+{
+    "name": "HomeTab Launcher",
+    "short_name": "HomeTab",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#0f0f12",
+    "icons": [
+        {
+            "src": "icon128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "icon48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        }
+    ]
+}
