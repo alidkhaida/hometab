@@ -2,8 +2,7 @@
 
 A modern, TV-style New Tab page designed for HTPCs, big screens, and keyboard warriors. Built with **TypeScript**, **Vite**, and **Glassmorphism** aesthetics.
 
-![HomeTab Preview](./public/icon.png) 
-*(Note: Replace this path with a real screenshot in your repo, e.g., `screenshots/preview.png`)*
+![HomeTab Preview](public/store_screenshot_1_main.png) 
 
 ## ✨ Features
 
