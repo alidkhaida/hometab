@@ -6,8 +6,8 @@
   --card-border: rgba(255, 255, 255, 0.1);
   --neon-blue: #00f3ff;
   --neon-glow: 0 0 15px rgba(0, 243, 255, 0.6), 0 0 30px rgba(0, 243, 255, 0.4);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-primary: #00f3ff;
+  --text-secondary: rgba(0, 243, 255, 0.7);
 
   /* Dimensions */
   --card-size: 160px;
